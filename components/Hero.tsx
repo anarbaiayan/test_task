@@ -1,4 +1,4 @@
-import Image from "next/image";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export default function Hero() {
   return (
@@ -46,13 +46,14 @@ export default function Hero() {
 
       {/* Illustration — full-width, overlapping behind content like the mockup */}
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-10 hidden sm:block">
-        <Image
-          src="/illustration.png"
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={`${basePath}/illustration.png`}
           alt="Futuristic blockchain illustration"
           width={1440}
           height={700}
           className="h-auto w-full object-cover object-top"
-          priority
+          fetchPriority="high"
         />
         {/* Bottom gradient fade into next section */}
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-dark-900 to-transparent" />

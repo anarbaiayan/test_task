@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: isProd ? repoName : "",
   assetPrefix: isProd ? repoName : "",
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? repoName : "",
+  },
   images: {
     unoptimized: true, // GitHub Pages doesn't support Next.js image optimization
   },
